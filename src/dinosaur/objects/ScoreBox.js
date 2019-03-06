@@ -66,7 +66,6 @@ class ScoreBox {
     }
 
     let divStyleTop = {
-      backgroundColor: "#00b4",
       position: "absolute",
       overflow: "hidden",
       height: entityProps.bodyHeight,
