@@ -10,6 +10,7 @@ import HUD from "../utils/Hud";
 import WhiteBird from "./objects/WhiteBird";
 import LoggerManager from "../utils/LoggerManager";
 import Logger from "../utils/Logger";
+import { AppContext } from "./context";
 
 class Dinosaur extends Component {
   constructor(props) {
@@ -207,19 +208,21 @@ class Dinosaur extends Component {
 
     return (
       <div style={scalability}>
-        <div onKeyDown={e => this.getInput(e)} tabIndex="0">
-          <HUD score={this.state.score} position={"tc"} />{" "}
-          <Background
-            height={640}
-            width={1280}
-            speed={0.5}
-            image={ResourceManager.getImagePath("backgroundDinosaur.png")}
-          >
-            {" "}
-          </Background>{" "}
-          <Menu showMenu={this.state.showMenu} /> {this.getObjects()}
-          {Logger.getShow() ? <LoggerManager /> : ""}
-        </div>
+        <AppContext.Provider value={this.state}>
+          <div onKeyDown={e => this.getInput(e)} tabIndex="0">
+            <HUD score={this.state.score} position={"tc"} />{" "}
+            <Background
+              height={640}
+              width={1280}
+              speed={0.5}
+              image={ResourceManager.getImagePath("backgroundDinosaur.png")}
+            >
+              {" "}
+            </Background>{" "}
+            <Menu showMenu={this.state.showMenu} /> {this.getObjects()}
+            {Logger.getShow() ? <LoggerManager /> : ""}
+          </div>
+        </AppContext.Provider>
       </div>
     );
   }

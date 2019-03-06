@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "../../style/Score.css";
-// import { AppContext } from "../../flappy/context";
+import { AppContext } from "../../dinosaur/context";
 import Logger from "../../utils/Logger";
 // Shows the top ten scoreboard
 class ScoreBoard extends Component {
@@ -32,7 +32,7 @@ class ScoreBoard extends Component {
 
   componentDidMount() {
     let isValueInArr = this.state.list.indexOf(this.context.score);
-    if (isValueInArr == -1 && this.context.score !== 0) {
+    if (isValueInArr === -1 && this.context.score !== 0) {
       let newList = this.state.list.slice();
       newList.push(this.context.score);
       this.setState({ list: newList });
@@ -95,6 +95,6 @@ const TableHeader = () => {
   );
 };
 
-// ScoreBoard.contextType = AppContext;
+ScoreBoard.contextType = AppContext;
 
 export default ScoreBoard;
