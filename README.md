@@ -4,7 +4,7 @@ Link to Game Engine [Game engine](https://bergurijohansen.github.io/LudumGameEng
 
 Link to Flappy [Flappy](https://bergurijohansen.github.io/LudumFlappy)
 
-Link to Dino [Dino](https://bergurijohansen.github.io/LudumGameDino/)
+Link to Dino [Dino](https://bergurijohansen.github.io/LudumDino/)
 
 ---
 
