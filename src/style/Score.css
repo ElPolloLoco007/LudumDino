@@ -9,11 +9,11 @@ table,
 td,
 th {
   border-style: inset;
-  border-color: #3e8e41;
+  border-color: #409ac4;
   border-width: 1px;
   text-align: left;
   margin: auto;
-  background-color: #f5d014;
+  background-color: #14f56a;
 }
 
 table {
@@ -28,7 +28,7 @@ table {
 th,
 td {
   font-family: "flappy";
-  color: #57c440;
+  color: #409ac4;
   padding: 5px;
   font-size: 150%;
 }

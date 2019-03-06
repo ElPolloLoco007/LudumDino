@@ -20,7 +20,7 @@
 }
 
 .menu-text {
-  color: #f5d014; /* White text */
+  color: #14f56a; /* White text */
   font-family: "flappy";
   font-size: 60px;
   font: bolder;
@@ -29,9 +29,9 @@
   display: block; /* Make the buttons appear below each other */
 }
 .menu-item {
-  background-color: #f5d014; /* Green background */
-  border: 1px solid #57c440; /* Green border */
-  color: #57c440; /* White text */
+  background-color: #14f56a; /* Green background */
+  border: 1px solid #409ac4; /* Green border */
+  color: #409ac4; /* White text */
   font-family: "flappy";
   font-size: 60px;
   font: bolder;
@@ -54,5 +54,5 @@
 
 /* Add a background color on hover */
 .menu-item:hover {
-  background-color: #3e8e41;
-}
+  background-color: #1080b4;
+} 
