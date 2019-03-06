@@ -61,7 +61,7 @@ class ScoreBox {
 
   render() {
     let entityProps = this.getEntityProps();
-    if (entityProps.bodyLeft < 100) {
+    if (entityProps.bodyLeft < -100) {
       this.respawn();
     }
 
