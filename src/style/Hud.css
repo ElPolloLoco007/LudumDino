@@ -1,0 +1,40 @@
+@font-face {
+  font-family: flappy;
+  src: url(../resources/fonts/flappy-bird.ttf);
+  font-weight: normal;
+  font-style: normal;
+}
+
+.hud {
+  position: absolute;
+  z-index: 9;
+  font-family: "flappy";
+  font-size: 128px;
+  font: bolder;
+  color: #f5d014;
+}
+.c {
+  top: 50%;
+  left: 50%;
+}
+.trc {
+  right: 50pt;
+}
+.tlc {
+  left: 50pt;
+}
+.tc {
+  left: 50%;
+}
+.brc {
+  right: 60pt;
+  top: 650pt;
+}
+.blc {
+  left: 60pt;
+  top: 650pt;
+}
+.bc {
+  left: 50%;
+  bottom: 30pt;
+}
