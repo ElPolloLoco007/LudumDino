@@ -37,14 +37,14 @@ class ScoreBoard extends Component {
       newList.push(this.context.score);
       this.setState({ list: newList });
 
-      localStorage.setItem("list_data_key", JSON.stringify(newList));
+      sessionStorage.setItem("list_data_key", JSON.stringify(newList));
       Logger.setText("ScoreBoard.js", "Array data is stored");
     }
   }
 
   UNSAFE_componentWillMount() {
     // retrieve stored data (JSON stringified) and convert
-    let storedData = localStorage.getItem("list_data_key");
+    let storedData = sessionStorage.getItem("list_data_key");
     if (storedData) {
       let newList = this.state.list.slice();
       newList = JSON.parse(storedData);
