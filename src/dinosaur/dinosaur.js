@@ -3,10 +3,13 @@ import "../style/App.css";
 import Background from "../gameEngine/components/Background";
 import DinosaurPlayer from "./objects/DinosaurPlayer";
 import Tree from "./objects/Tree";
+import ScoreBox from "./objects/ScoreBox";
 import ResourceManager from "../utils/ResourceManager";
 import Menu from "../gameEngine/components/Menu";
 import HUD from "../utils/Hud";
 import WhiteBird from "./objects/WhiteBird";
+import LoggerManager from "../utils/LoggerManager";
+import Logger from "../utils/Logger";
 
 class Dinosaur extends Component {
   constructor(props) {
@@ -16,7 +19,9 @@ class Dinosaur extends Component {
       new DinosaurPlayer(),
       new WhiteBird(),
       new Tree(1280, 365, 200, 100),
-      new Tree(1280 * 2, 365, 200, 100)
+      new ScoreBox(1280, 0, 365, 100),
+      new Tree(1280 * 2, 365, 200, 100),
+      new ScoreBox(1280 * 2, 0, 365, 100)
     ];
 
     this.state = {
@@ -58,7 +63,9 @@ class Dinosaur extends Component {
             new DinosaurPlayer(),
             new WhiteBird(),
             new Tree(1280, 365, 200, 100),
-            new Tree(1280 * 2, 365, 200, 100)
+            new ScoreBox(1280, 0, 365, 100),
+            new Tree(1280 * 2, 365, 200, 100),
+            new ScoreBox(1280 * 2, 0, 365, 100)
           ],
           endGame: false
         });
@@ -73,7 +80,9 @@ class Dinosaur extends Component {
       const len = min + Math.random() * max;
 
       let tree1 = this.state.playerArr[2];
-      let tree2 = this.state.playerArr[3];
+      let tree2 = this.state.playerArr[4];
+      let scoreBox1 = this.state.playerArr[3];
+      let scoreBox2 = this.state.playerArr[5];
 
       // if space between tree1 and tree2 is smaller than 400
       if (
@@ -88,6 +97,21 @@ class Dinosaur extends Component {
         tree1.getBody().getLeft() - tree2.getBody().getLeft() >= 0
       ) {
         tree1.getBody().setLeft(1280);
+      }
+
+      // if space between scoreBox1 and scoreBox2 is smaller than 400
+      if (
+        scoreBox2.getBody().getLeft() - scoreBox1.getBody().getLeft() < 450 &&
+        scoreBox2.getBody().getLeft() - scoreBox1.getBody().getLeft() >= 0
+      ) {
+        scoreBox2.getBody().setLeft(1280);
+      }
+      // if space between tree2 and tree1 is smaller than 400
+      if (
+        scoreBox1.getBody().getLeft() - scoreBox2.getBody().getLeft() < 450 &&
+        scoreBox1.getBody().getLeft() - scoreBox2.getBody().getLeft() >= 0
+      ) {
+        scoreBox1.getBody().setLeft(1280);
       }
 
       // only checking if player has collided with player2, player3 or player4
@@ -106,10 +130,17 @@ class Dinosaur extends Component {
           hasPlayerCollided &&
           this.state.playerArr[index].getEntity().name === "Score box"
         ) {
-          this.setState({
-            score: this.state.score + 500
-          });
           hasPlayerCollided = false;
+
+          if (this.state.playerArr[index].isHit !== true) {
+            let scoreCopy = this.state.score;
+            this.setState({
+              score: scoreCopy + 1
+            });
+            Logger.setText("flappy.js", `score: ${this.state.score}`);
+            player.getAudioManager().play(1); // testing!!!
+          }
+          this.state.playerArr[index].setIsHit(true);
         }
 
         //this.context.gap = len;
@@ -147,6 +178,7 @@ class Dinosaur extends Component {
       if (this.state.keyPressed === true && this.state.gameRunning === false) {
         this.setState({ gameRunning: true });
         this.setState({ keyPressed: false });
+        this.setState({ score: 0 });
       }
     }
 
@@ -186,6 +218,7 @@ class Dinosaur extends Component {
             {" "}
           </Background>{" "}
           <Menu showMenu={this.state.showMenu} /> {this.getObjects()}
+          {Logger.getShow() ? <LoggerManager /> : ""}
         </div>
       </div>
     );
