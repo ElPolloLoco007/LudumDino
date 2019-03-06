@@ -1,10 +1,12 @@
 ![Ludum logo](extra/logo_1.png)
 
-Link to Game Engine [Game engine](https://bergurijohansen.github.io/LudumGameEngine/)
+Link to [**Ludum Game Engine Demo**](https://bergurijohansen.github.io/LudumGameEngine/)
 
-Link to Flappy [Flappy](https://bergurijohansen.github.io/LudumFlappy)
+### Games developed with Ludum Game Engine:
 
-Link to Dino [Dino](https://bergurijohansen.github.io/LudumDino/)
+Link to [**flappy bird**](https://bergurijohansen.github.io/LudumFlappy/)
+
+Link to [**dinosaur**](https://bergurijohansen.github.io/LudumDino/)
 
 ---
 
